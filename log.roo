@@ -1,0 +1,136 @@
+
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-18 16:38:16
+// [failed] database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-18 17:11:27
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-18 17:30:03
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 13:55:46
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-25 13:58:28
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 14:40:02
+focus --class br.gov.sspba.domain.Funcionario
+field boolean --fieldName autExpeditora --notNull
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-25 14:58:18
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 15:17:28
+focus --class br.gov.sspba.domain.Funcionario
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-25 15:28:47
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 15:29:52
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-25 15:43:31
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 15:58:02
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-25 16:01:17
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 16:02:16
+focus --class br.gov.sspba.domain.Funcionario
+field string --fieldName localExpedicao --notNull
+field string --fieldName secaoTitulo --notNull
+field string --fieldName cidadeTitulo --notNull
+field string --fieldName rmReservista --notNull
+field date --fieldName dataAdmissao --type java.util.Date --persistenceType JPA_TIMESTAMP
+field date --fieldName dataExclusao --type java.util.Date --persistenceType JPA_TIMESTAMP
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-25 16:24:53
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 16:41:52
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-25 16:43:57
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-25 16:44:08
+focus --class br.gov.sspba.domain.Funcionario
+field string --fieldName altura --notNull
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-26 09:54:22
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-26 09:55:00
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-26 09:57:52
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-26 10:17:57
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-26 10:26:48
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-26 10:27:24
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-26 10:31:19
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-06-26 10:33:30
+// [failed] database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-06-26 10:37:02
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-06-26 10:37:49
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-06-26 10:39:41
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-06-26 10:41:38
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-06-26 10:45:55
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-06-26 10:48:16
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-06-26 10:52:32
+hint
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain  --activeRecord true
+
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain --activeRecord true
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.entity  --activeRecord true
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-06-26 11:19:15
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-06-26 11:31:34
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-06-26 11:34:43
+osgi install --url file:\\\E:\\mysql-connector-java-5.1.18-bin.jar
+database reverse engineer --schema bd_identificacao_pm  --package br.gov.sspba.domain --activeRecord true
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-06-26 14:08:11
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-14 09:55:16
+addon list 
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-14 10:14:23
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-29 16:41:34
+focus --class ~.domain.Funcionario
+finder add findFuncionariosByMatriculaEquals
+finder add findFuncionarioByMatriculaEquals
+finder add findUniqueFuncionarioByMatriculaEquals
+finder add findUniqueFuncionariosByMatriculaEquals
+finder add findFuncionariosByMatriculaEquals
+finder add --finderName  findFuncionariosByMatriculaEquals
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-29 17:19:51
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-29 17:20:04
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-29 17:22:35
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-29 17:24:51
+focus --class ~.domain.Funcionario
+finder add --finderName  findFuncionariosByMatriculaEquals
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-29 17:38:15
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-29 17:52:44
+focus --class ~.domain.Funcionario
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-31 09:30:02
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-31 14:49:20
+focus --class ~.domain.Funcionario
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-07-31 15:00:23
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-07-31 15:01:45
+focus --class ~.domain.Funcionario
+finder add --finderName  findFuncionariosByMatriculaEqualsOrNomeEqualsOrSobrenomeEquals
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-08-04 15:00:56
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-08-06 15:59:04
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-08-06 17:26:35
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-08-10 17:50:12
+focus --class ~.domain.Notageral
+// [failed] finder list 
+// [failed] finder add --finderName findNotageralByIdFuncionario
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-08-13 11:54:40
+entity jpa --class ~.CategoriaCNH --serializable 
+// [failed] field string --fieldName descricao --notNull
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-08-14 13:50:05
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-08-14 13:54:31
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-08-14 13:55:03
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-08-14 14:04:44
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-08-14 14:20:59
+focus --class ~.domain.Unidade
+finder add --finderName findUnidadesByIdComandoEquals
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-08-14 14:28:27
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log opened at 2015-08-14 15:54:21
+entity jpa --class ~.Devices --serializable 
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2015-08-17 08:51:29

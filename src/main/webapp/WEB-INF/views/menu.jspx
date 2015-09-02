@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_userrole" z="C4C1ZBdes4PUIjEM3Ajwwhn1EwA=">
+            <menu:item id="i_userrole_new" messageCode="global_menu_new" url="/userroles?form" z="qYpuuJuPupoYjD8LM0ISnxylj4o="/>
+            <menu:item id="i_userrole_list" messageCode="global_menu_list" url="/userroles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="fTjcT4INZTypLgu+ZHmwzE55ORs="/>
+        </menu:category>
+        <menu:category id="c_userpermission" z="LmO+mNrsdpuPk7DpT6fmRHPxylo=">
+            <menu:item id="i_userpermission_new" messageCode="global_menu_new" url="/userpermissions?form" z="Fh8jl5xP54VFevhFQGvMDrxG30I="/>
+            <menu:item id="i_userpermission_list" messageCode="global_menu_list" url="/userpermissions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="7R+xvPeTDWR3plL8Nss1w6tUb94="/>
+        </menu:category>
+        <menu:category id="c_useraccount" z="Yb8cyPB5AwOfYXCcrEpGXNT9C+k=">
+            <menu:item id="i_useraccount_new" messageCode="global_menu_new" url="/useraccounts?form" z="dm6iErpLQmgISoPCTS3yLiH8XFA="/>
+            <menu:item id="i_useraccount_list" messageCode="global_menu_list" url="/useraccounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nijRCp2PPYuD2D3D7hljcdDK4vs="/>
+        </menu:category>
+        <menu:category id="c_historicoatividade" z="5TOyRy7sGENV5x+INsPQgi0VbzE=">
+            <menu:item id="i_historicoatividade_new" messageCode="global_menu_new" url="/historicoatividades?form" z="ar2G1lnoEwvFjBWahw0W+CV1QpY="/>
+            <menu:item id="i_historicoatividade_list" messageCode="global_menu_list" url="/historicoatividades?page=1&amp;size=${empty param.size ? 10 : param.size}" z="KMoHYlwP8ChWSPzArKEsBgnZSIA="/>
+        </menu:category>
+    </menu:menu>
+</div>

@@ -1,0 +1,98 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../template/template.xhtml"
+                xmlns:sec="http://www.springframework.org/security/tags">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+      
+		      
+			   
+			   
+			    <div class="Container100 Responsive50">
+                <div class="ContainerIndent">    
+               
+                    <h:form id="form">
+                    
+                    <p:fieldset legend="Encontre o funcionário para e selecione-o para criar seu  usuário"  style="margin-bottom:20px">
+     	                     <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+	
+							    <p:inputText styleClass="Wid90" placeholder="Matrícula" value="#{funcionarioBean.matricula}" size="27"/>
+							    
+				
+							    <p:inputText styleClass="Wid90" placeholder="CPF" value="#{funcionarioBean.cpf}" size="27"/>
+							    
+							   
+							    <p:inputText styleClass="Wid90" placeholder="Nome" value="#{funcionarioBean.nome}" size="27"/>
+							    
+							  
+							    <p:inputText styleClass="Wid90" placeholder="SobreNome" value="#{funcionarioBean.sobrenome}" size="27"/>
+				               <p:outputPanel style="margin-top:10px">
+					               <p:outputLabel value="Aut.Expedidora " style="font-weight: bold;" />  
+							       <p:selectBooleanCheckbox  style="margin-left:40px" value="#{funcionarioBean.autExpeditora}"/> 
+						      
+						           
+						       </p:outputPanel>
+						
+						       <p:commandButton icon="fa fa-search Fs16 white" update="funcionarioDT"   value="Pesquisar" process="@form" actionListener="#{funcionarioBean.findFuncionarioByFilter}" />    
+					    
+					  </p:panelGrid> 
+			
+                   
+                    </p:fieldset>
+                        <p:dataTable id="funcionarioDT" var="funcionario" value="#{funcionarioBean.funcionarioList}" 
+                                     rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     emptyMessage="Nenhum funcionário encontrado" reflow="true">
+
+			                           
+			                    <p:column headerText="Nome">
+							        <h:outputText value="#{funcionario.nome}" />
+							    </p:column>
+				 
+							    <p:column headerText="Sobrenome">
+							        <h:outputText value="#{funcionario.sobrenome}" />
+							    </p:column>
+				 
+							    <p:column headerText="Matrícula">
+							        <h:outputText value="#{funcionario.matricula}" />
+							    </p:column>
+				 
+							    <p:column headerText="CPF">
+							        <h:outputText value="#{funcionario.cpf}" />
+							    </p:column>
+                            
+                 
+			                    <p:column headerText="Detalhar" style="width:50px">
+
+			                                 <p:commandButton id="selectButton" process="@this"  actionListener="#{funcionarioBean.selecionaFuncionarioParaContaUsuario(funcionario)}" icon="fa fa-plus Fs16 white" title="Editar" /> 
+			                              
+			                    </p:column>
+                         
+                        </p:dataTable>
+
+                       
+                    </h:form>
+                </div>
+            </div>
+
+          
+            
+        
+         </div>
+            
+          
+            
+            
+            
+            
+     
+      
+            
+
+
+    </ui:define>
+
+</ui:composition>

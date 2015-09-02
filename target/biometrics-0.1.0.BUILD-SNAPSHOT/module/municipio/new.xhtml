@@ -1,0 +1,49 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    template="../../template/template.xhtml">
+    
+   <ui:define name="content">
+  <div class="layout-portlets-box">
+      
+      	<ui:insert name="navigation">
+	    	<ui:include src="/module/municipio/navigation.xhtml" />
+	   </ui:insert>
+        
+       
+      <div class="Container60 Responsive50">
+            <div class="ContainerIndent">       
+            <h1 class="BigTopic">Cadastro</h1>
+         <h:form   style="margin-left: 180px;">
+             <p:growl id="messages" showDetail="true" />
+             
+             
+                 
+                      <h:panelGrid columns="2" cellpadding="5">
+		                      <p:outputLabel for="inputNome" value="Nome : "/>
+				              <p:inputText id="inputNome"  style="width:200px" />
+				            
+				      </h:panelGrid>
+				      <h:panelGrid columns="1" >
+				              <p:commandButton value="Salvar" icon="fa fa-save Fs16 white" style="margin-left: 185px;" />
+				            
+				      </h:panelGrid>
+						
+								
+	           
+         
+         </h:form>
+          
+            
+          </div>
+        </div>
+      
+            
+   </div>
+
+    </ui:define>
+
+ </ui:composition>

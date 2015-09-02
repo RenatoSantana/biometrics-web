@@ -1,0 +1,364 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    template="../../template/template.xhtml">
+    
+   <ui:define name="content">
+  <div class="layout-portlets-box">
+      
+ 
+        
+       
+      <div class="Container100 Responsive50">
+            <div class="ContainerIndent">       
+            <h1 class="BigTopic">Cadastro de Funcionário</h1>
+        
+      <!--h:form    id="formService" enctype="multipart/form-data" acceptcharset="ISO-8859-1">
+	      <p:growl id="messages"  showDetail="true" sticky="true" life="30"/>
+		  < p:fieldset legend="Web-Service" style="margin-bottom:20px">	
+			
+				<h:panelGrid columns="5"  cellpadding="6" >   
+				    <p:outputLabel value="Matrícula:"  style="font-weight: bold;"/> 
+				    <p:inputText value="#{funcionarioBean.funcionario.matricula}" size="27" disabled="true"/>
+				    
+				    <p:outputLabel value="CPF:"  style="font-weight: bold;"/> 
+				    <p:inputText value="#{funcionarioBean.funcionario.cpf}" size="27" disabled="true">
+				      <f:validateRegex  pattern="[0-9]+" />
+				    </p:inputText>
+			
+				   
+				      <p:commandButton disabled="true" value="Consultar"   process="@form" icon="fa fa-search Fs16 white"  actionListener="#{cadastroFuncionarioMbean.consultarWebService}"   />
+				  
+				    
+				  </h:panelGrid>  
+				 
+				 
+			</p:fieldset>
+      </h:form-->   
+
+	<h:form id="formFuncionario">
+	
+		  <p:fieldset legend="Informações Básicas" style="margin-bottom:20px">	
+		  
+		  
+
+	      
+			 <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+			       
+                <p:outputLabel value="Aut.Expedidora " style="font-weight: bold;" />  
+			    <p:selectBooleanCheckbox value="#{funcionarioBean.funcionario.autExpeditora}" disabled="true"/> 
+			    
+			    <p:spacer/>
+			    <p:outputLabel value="#{funcionarioBean.funcionario.via} º via"  style="font-weight: bold;color:red"/> 
+			   
+			   
+			   
+			    <p:outputLabel value="Nome:"  style="font-weight: bold;" /> 
+				<p:inputText value="#{funcionarioBean.funcionario.nome}"  styleClass="Wid90" required="true" requiredMessage="Nome obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+               
+                <p:outputLabel value="Sobrenome:"  style="font-weight: bold;"/> 
+			    <p:inputText value="#{funcionarioBean.funcionario.sobrenome}"  styleClass="Wid90"  required="true" requiredMessage="Sobrenome obrigatório" converter="br.gov.sspba.converter.upperCaseConverter" />
+			    
+			    <p:outputLabel value="Matrícula:"  style="font-weight: bold;"/> 
+			    <p:inputText value="#{funcionarioBean.funcionario.matricula}" styleClass="Wid90"  required="true" requiredMessage="Mátricula obrigatória"  validatorMessage="O padrão da matrícula está incorreto, digite apenas números" >
+			     <f:validateRegex  pattern="[0-9]+"  />
+			    </p:inputText>
+			   
+			    <p:outputLabel value="CPF:"  style="font-weight: bold;"/> 
+			    <p:inputText value="#{funcionarioBean.funcionario.cpf}"  styleClass="Wid90"  required="true" requiredMessage="CPF obrigatório" validatorMessage="O padrão do cpf está incorreto, digite apenas números">
+			      <f:validateRegex  pattern="[0-9]+"  />
+			    </p:inputText>
+
+                <p:outputLabel value="RG:"  style="font-weight: bold;"/> 
+			    <p:inputText value="#{funcionarioBean.funcionario.rg}"  styleClass="Wid90"  required="true" requiredMessage="RG obrigatório" converter="br.gov.sspba.converter.upperCaseConverter" />
+			   
+			    <p:outputLabel value="Orgão Expedidor:"  style="font-weight: bold;"/> 
+			    <p:inputText value="#{funcionarioBean.funcionario.orgaoExpedidor}" styleClass="Wid90"  required="true" requiredMessage="Orgão Expedidor obrigatório" converter="br.gov.sspba.converter.upperCaseConverter" />
+			     <p:outputLabel value="nº CNH:"  style="font-weight: bold;"/> 
+		         <p:inputText value="#{funcionarioBean.funcionario.cnh}"  styleClass="Wid90"  validatorMessage="Digite apenas números no CNH">
+		            <f:validateRegex  pattern="[0-9]*"  />
+		         </p:inputText>
+		         <p:outputLabel value="Categoria CNH:"  style="font-weight: bold;"/> 
+		          <p:autoComplete id="catCNH" value="#{funcionarioBean.funcionario.idCategoriaCNH}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="categoria" itemValue="#{categoria}" forceSelection="true" itemLabel="#{categoria.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Categoria CNH  obrigatório" dropdown="true" styleClass="Wid90"  completeMethod="#{funcionarioBean.autoCompleteCategoriaCNH}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaCategoriaCNH}" />
+		         </p:autoComplete>
+		  
+		        
+			    <p:outputLabel value="Data Nasc:"  style="font-weight: bold;"/> 
+		        <p:calendar   styleClass="Wid90"  required="true" value="#{funcionarioBean.funcionario.dataNascimento}" requiredMessage="Data Nascimento obrigatório"/>
+
+                 <p:outputLabel value="Sexo:"   style="font-weight: bold;"/> 
+		        <p:autoComplete id="sexoCmp" value="#{funcionarioBean.funcionario.idSexo}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="sexo" itemValue="#{sexo}" forceSelection="true" itemLabel="#{sexo.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Sexo  obrigatório" dropdown="true"  styleClass="Wid90"  completeMethod="#{funcionarioBean.autoCompleteSexo}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaSexo}" />
+		         </p:autoComplete>
+				              
+       
+			    <p:outputLabel value="Pai:"  style="font-weight: bold;"/> 
+		        <p:inputText value="#{funcionarioBean.funcionario.pai}" styleClass="Wid90"   converter="br.gov.sspba.converter.upperCaseConverter"/>
+				
+				<p:outputLabel value="Mãe:"  style="font-weight: bold;"/> 
+			    <p:inputText value="#{funcionarioBean.funcionario.mae}" styleClass="Wid90"  required="true" requiredMessage="Mãe obrigatório" converter="br.gov.sspba.converter.upperCaseConverter" />
+			    
+			    <p:outputLabel value="Estado:"  style="font-weight: bold;"/> 
+		        <p:inputText value="#{funcionarioBean.funcionario.estadoNascimento}" styleClass="Wid90"   required="true" requiredMessage="Estado obrigatório" converter="br.gov.sspba.converter.upperCaseConverter" />
+			
+              
+                <p:outputLabel value="Naturalidade:"   style="font-weight: bold;"/> 
+		        <p:inputText value="#{funcionarioBean.funcionario.cidadeNascimento}"  styleClass="Wid90"   required="true" requiredMessage="Mãe obrigatório" converter="br.gov.sspba.converter.upperCaseConverter" />
+			    
+             
+              
+              
+             
+              
+               <p:outputLabel value="Sit. do Policial:"  style="font-weight: bold;"/> 
+		        <p:autoComplete id="situacaoCmp" value="#{funcionarioBean.funcionario.idSituacaoPolicial}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="situacao" itemValue="#{situacao}" forceSelection="true" itemLabel="#{situacao.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Situacao do Policial  obrigatório" dropdown="true"  styleClass="Wid90"  completeMethod="#{funcionarioBean.autoCompleteSituacaoPolicial}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaSituacaoPolicial}" />
+			    </p:autoComplete>
+              
+             
+              
+               <p:outputLabel value="Unidade:"  style="font-weight: bold;"/> 
+		         <p:autoComplete id="unidadeCmp" value="#{funcionarioBean.funcionario.idUnidade}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="unidade" itemValue="#{unidade}" forceSelection="true" itemLabel="#{unidade.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Unidade  obrigatório" dropdown="true"  styleClass="Wid90"  completeMethod="#{funcionarioBean.autoCompleteUnidade}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaUnidade}" />
+			    </p:autoComplete>
+           
+			   
+			   
+			    <p:outputLabel value="Estado Cívil:"  style="font-weight: bold;"/> 
+		       <p:autoComplete id="estadoCivilCmp" value="#{funcionarioBean.funcionario.idEstadoCivil}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="estadoCivil" itemValue="#{estadoCivil}" forceSelection="true" itemLabel="#{estadoCivil.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Estado cívil  obrigatório" dropdown="true" styleClass="Wid90"  completeMethod="#{funcionarioBean.autoCompleteEstadoCivil}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaEstadoCivil}" />
+			    </p:autoComplete>
+              
+              
+              <p:outputLabel value="Grau de Instrução:"  style="font-weight: bold;"/> 
+		       <p:autoComplete id="grauInstrucaoCmp"   value="#{funcionarioBean.funcionario.idGrauDeInstrucao}" converter="br.gov.sspba.converter.SimpleIndexConverter"  var="grauInstrucao" itemValue="#{grauInstrucao}" forceSelection="true" itemLabel="#{grauInstrucao.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Grau de Instrucao  obrigatório" dropdown="true"  styleClass="Wid90"  completeMethod="#{funcionarioBean.autoCompleteGrauInstrucao}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaGrauInstrucao}" />
+			    </p:autoComplete>
+              
+			   
+			</p:panelGrid>
+	
+		
+		
+		
+				
+		  
+		  </p:fieldset>
+		    <p:fieldset legend="Caracteristicas físicas" style="margin-bottom:20px">
+		       <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+			       
+		         <p:outputLabel value="Grup. Sang:"   /> 
+		        <p:autoComplete id="grupoSangCmp"  value="#{funcionarioBean.funcionario.idGrupoSanguineo}" converter="br.gov.sspba.converter.SimpleIndexConverter"  var="grupoSanguineo" itemValue="#{grupoSanguineo}" forceSelection="true" itemLabel="#{grupoSanguineo.descricao}"    maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Grupo Sanguineo  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteGrupoSanguineo}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaGrupoSanguineo}" />
+			    </p:autoComplete>
+              
+               <p:outputLabel value="Fator RH:"   /> 
+		        <p:autoComplete id="fatorRHCmp"  value="#{funcionarioBean.funcionario.idFatorRh}"  converter="br.gov.sspba.converter.SimpleIndexConverter" minQueryLength="3" var="fatorRH" itemValue="#{fatorRH}" forceSelection="true" itemLabel="#{fatorRH.descricao}"    maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Fator RH obrigatório" dropdown="true"  styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteFatorRH}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaFatorRH}" />
+			    </p:autoComplete>
+		        <p:outputLabel value="Cutis:" /> 
+		       
+		       <p:autoComplete id="cutisCmp" value="#{funcionarioBean.funcionario.idCutis}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="cutis" itemValue="#{cutis}" forceSelection="true" itemLabel="#{cutis.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Cutis  obrigatório" dropdown="true"  styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteCutis}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaCutis}" />
+			    </p:autoComplete>
+                <p:outputLabel  value="Cabelo:"  /> 
+		        <p:autoComplete id="cabeloCmp" value="#{funcionarioBean.funcionario.idCabelo}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="cabelo" itemValue="#{cabelo}" forceSelection="true" itemLabel="#{cabelo.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Cabelo  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteCabelo}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaCabelo}" />
+			    </p:autoComplete>
+                
+                 <p:outputLabel value="Barba:"   style="font-weight: bold;"/>
+                  <p:autoComplete id="barbaCmp"  value="#{funcionarioBean.funcionario.idBarba}" converter="br.gov.sspba.converter.SimpleIndexConverter"  var="barba" itemValue="#{barba}" forceSelection="true" itemLabel="#{barba.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Barba  obrigatório" dropdown="true"  styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteBarba}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaBarba}" />
+			    </p:autoComplete>
+                
+              
+               <p:outputLabel value="Bigode:"   /> 
+		          <p:autoComplete id="bigodeCmp" value="#{funcionarioBean.funcionario.idBigode}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="bigode" itemValue="#{bigode}" forceSelection="true" itemLabel="#{bigode.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Bigode  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteBigode}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaBigode}" />
+			    </p:autoComplete>
+              
+               <p:outputLabel value="Olhos:"   style="font-weight: bold;"/> 
+		          <p:autoComplete id="olhoCmp"  value="#{funcionarioBean.funcionario.idOlho}" converter="br.gov.sspba.converter.SimpleIndexConverter"  var="olho" itemValue="#{olho}" forceSelection="true" itemLabel="#{olho.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Olho  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteOlho}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaOlho}" />
+			    </p:autoComplete>
+              
+               
+              
+                <p:outputLabel value="Altura:"/> 
+			   <p:inputText value="#{funcionarioBean.funcionario.altura}"  styleClass="Wid10" converterMessage="Formato inválido da altura" >
+			     <f:validateRegex pattern="\d*(.\d+)?"/> 
+			   </p:inputText>
+		      </p:panelGrid>
+		    
+		    </p:fieldset>
+		  
+		   <p:fieldset legend="Endereço" style="margin-bottom:20px">	    
+                     <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+                     <p:outputLabel  value="Estado:"/>
+				              <p:autoComplete id="estadoResidenteCmp" value="#{funcionarioBean.funcionario.idEstadoResidente}"   converter="br.gov.sspba.converter.SimpleIndexConverter"  var="estado" itemValue="#{estado}" forceSelection="true" itemLabel="#{estado.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Estado  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteEstado}">
+				                 <p:ajax update="municipioCmp" event="itemSelect" listener="#{funcionarioBean.selecionaEstado}" />
+				              </p:autoComplete>
+				           
+				           
+				              <p:outputLabel  value="Município:"/>
+				              <p:autoComplete id="municipioCmp" value="#{funcionarioBean.funcionario.idMunicipioResidente}"   converter="br.gov.sspba.converter.SimpleIndexConverter"  var="municipio" itemValue="#{municipio}" forceSelection="true" itemLabel="#{municipio.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Município  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteMunicipiosByEstado}">
+				                 <p:ajax update="bairroCmp" event="itemSelect" listener="#{funcionarioBean.selecionaMunicipio}" />
+				              </p:autoComplete>
+				              
+				              <p:outputLabel  value="Bairro:" />
+				             <p:autoComplete  id="bairroCmp" value="#{funcionarioBean.funcionario.idBairroResidente}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="bairro" itemValue="#{bairro}" forceSelection="true" itemLabel="#{bairro.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Bairro  obrigatório" dropdown="true"  styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteBairroByMunicipio}">
+				                 <p:ajax  event="itemSelect" listener="#{funcionarioBean.selecionaBairro}" />
+			                   </p:autoComplete>
+				        
+                              <p:outputLabel for="inputCep" value="CEP :"/>
+				              <p:inputText id="inputCep"  value="#{funcionarioBean.funcionario.cep}"  styleClass="Wid40"/>
+				             
+                              <p:outputLabel  value="Tp.  Logradouro:"/>
+				              <p:inputText id="inputTipoLogradouro"  value="#{funcionarioBean.funcionario.tipoLogradouro}"  styleClass="Wid90"/>
+				              <p:outputLabel  value="Endereço :" />
+				                <p:inputText id="endereco"  value="#{funcionarioBean.funcionario.endereco}" styleClass="Wid90"/>
+
+				              <p:outputLabel for="inputNumero" value="Número :"/>
+				              <p:inputText id="inputNumero" value="#{funcionarioBean.funcionario.numeroLogradouro}"  styleClass="Wid20"  />
+				           
+				              <p:outputLabel for="inputComplemento" value="Complemento:" />
+				              <p:inputText id="inputComplemento"  value="#{funcionarioBean.funcionario.complemento}" styleClass="Wid90"/>
+				              
+				             
+				           
+				             
+				              
+				              
+				  
+				              
+                      </p:panelGrid>
+                      
+                   </p:fieldset>
+                   
+                   
+		  <p:fieldset legend="Admissão"  style="margin-bottom:20px">
+		   <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+			   <p:outputLabel value="Data de  Admissão:"  /> 
+			    <p:calendar value="#{funcionarioBean.funcionario.dataAdmissao}"  styleClass="Wid90" required="true" requiredMessage="Data de Admissão obrigatório"/>
+			   
+			   <p:outputLabel value="Data de Exclusão:"  /> 
+			   <p:calendar styleClass="Wid90" value="#{funcionarioBean.funcionario.dataExclusao}" />
+			   
+			   <p:outputLabel value="Local de Expedição:"  /> 
+			   <p:inputText value="#{funcionarioBean.funcionario.localExpedicao}"  styleClass="Wid50" required="true" requiredMessage="Local de Expedição obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>   
+		   </p:panelGrid>
+		  </p:fieldset>
+		   
+		   	   <p:fieldset legend="Certidão"  style="margin-bottom:20px">	 
+		        <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+		          <p:outputLabel  value="Tipo de Certidão :" />
+				    <p:autoComplete value="#{funcionarioBean.funcionario.idTipoCertidao}"  id="tipoCertidadoCmp"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="tipoCertidao" itemValue="#{tipoCertidao}" forceSelection="true" itemLabel="#{tipoCertidao.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Tipo Certidão  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteTipoCertidao}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaTipoCertidao}" />
+				              </p:autoComplete>
+		         </p:panelGrid>
+		         
+		         <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+		         
+		           <p:outputLabel value="Data:"  style="font-weight: bold;"/> 
+		  <p:calendar styleClass="Wid90"  value="#{funcionarioBean.funcionario.dataCertidao}"  required="true" requiredMessage="Data da certidão obrigatório"/>
+          <p:outputLabel value="Município:"  style="font-weight: bold;"/> 
+		  <p:inputText value="#{funcionarioBean.funcionario.municipioCertidao}"  styleClass="Wid90" required="true" requiredMessage="Municipío da certidão obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+		   <p:outputLabel value="Distrito:"  style="font-weight: bold;"/> 
+		  <p:inputText  value="#{funcionarioBean.funcionario.distritoCertidao}"  styleClass="Wid90" required="true" requiredMessage="Distro da certidão obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+		  
+		  <p:outputLabel value="Liv:"  style="font-weight: bold;"/> 
+		  <p:inputText value="#{funcionarioBean.funcionario.livCertidao}" styleClass="Wid90" required="true" requiredMessage="Liv da certidão obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+          <p:outputLabel value="Rs:"  style="font-weight: bold;"/> 
+		  <p:inputText value="#{funcionarioBean.funcionario.rsCertidao}"  styleClass="Wid90" required="true" requiredMessage="Rs da certidão obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+		   <p:outputLabel value="Reg:"  style="font-weight: bold;"/> 
+		  <p:inputText value="#{funcionarioBean.funcionario.regCertidao}" styleClass="Wid90" required="true" requiredMessage="Reg da certidão obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+		         </p:panelGrid>
+		         </p:fieldset>
+		         
+		         
+		     <p:fieldset legend="Título de Eleitor"  style="margin-bottom:20px">	 
+		        <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+		          <p:outputLabel value="Nº:"  style="font-weight: bold;"/> 
+				  <p:inputText value="#{funcionarioBean.funcionario.numeroTituloEleitor}"  styleClass="Wid90"  required="true" requiredMessage="Número do título obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+		          <p:outputLabel value="Zona:"  style="font-weight: bold;"/> 
+				  <p:inputText value="#{funcionarioBean.funcionario.zonaTituloEleitor}" styleClass="Wid90" required="true" requiredMessage="Zona do título obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+				 
+		           
+		           <p:outputLabel  value="Estado:"/>
+				 <p:inputText value="#{funcionarioBean.funcionario.estadoTituloEleitor}" styleClass="Wid90" required="true" requiredMessage="Estado do título obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+				   
+				   <p:outputLabel  value="Cidade:"/>
+				    <p:inputText styleClass="Wid90" required="true"  value="#{funcionarioBean.funcionario.cidadeTituloEleitor}"  requiredMessage="Cidade do título obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+				    
+				     <p:outputLabel value="Seção:"  style="font-weight: bold;"/> 
+		          <p:inputText styleClass="Wid90" required="true" value="#{funcionarioBean.funcionario.secaoTituloEleitor}" requiredMessage="Seção do título obrigatório" converter="br.gov.sspba.converter.upperCaseConverter"/>
+		        
+		        
+		         </p:panelGrid>
+		    </p:fieldset>
+		    
+		       <p:fieldset legend="Certificado de Reservista"  style="margin-bottom:20px">
+					     <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+					          
+					          <p:outputLabel value="Nº:"  style="font-weight: bold;"/> 
+							  <p:inputText value="#{funcionarioBean.funcionario.numeroReservista}" styleClass="Wid90"  converter="br.gov.sspba.converter.upperCaseConverter"/>
+					          
+					          <p:outputLabel value="RM:"  style="font-weight: bold;"/> 
+							  <p:inputText   value="#{funcionarioBean.funcionario.rmReservista}" styleClass="Wid90" converter="br.gov.sspba.converter.upperCaseConverter"/>
+							  
+							  <p:outputLabel value="CSM:"  style="font-weight: bold;"/> 
+							  <p:inputText value="#{funcionarioBean.funcionario.csmReservista}" styleClass="Wid90" converter="br.gov.sspba.converter.upperCaseConverter"/>
+							  
+							  <p:outputLabel value="Data:"  style="font-weight: bold;"/> 
+					     	  <p:calendar value="#{funcionarioBean.funcionario.dataReservista}" styleClass="Wid90" />
+					       </p:panelGrid>
+		       </p:fieldset>
+		         <p:panel style="margin-bottom:20px">	
+		         
+		          <p:panelGrid columns="4" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+		            
+		              <p:outputLabel value="Posto ou Graduação:"  /> 
+		               <p:autoComplete id="postoGraduacao" value="#{funcionarioBean.funcionario.idPostoGraduacao}"   converter="br.gov.sspba.converter.SimpleIndexConverter"  var="postoGraduacao" itemValue="#{postoGraduacao}" forceSelection="true" itemLabel="#{postoGraduacao.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Posto/Graduação obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompletePostoGraduacao}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaPostoGraduacao}" />
+				              </p:autoComplete>
+           
+                      <p:outputLabel value="Quadro:" /> 
+                      <p:autoComplete id="quadro" value="#{funcionarioBean.funcionario.idQuadro}"  converter="br.gov.sspba.converter.SimpleIndexConverter"  var="quadro" itemValue="#{quadro}" forceSelection="true" itemLabel="#{quadro.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Quadro obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteQuadro}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaQuadro}" />
+				              </p:autoComplete>
+		  
+		            </p:panelGrid>
+		         </p:panel>
+		         <p:fieldset legend="Anotações anômalas"  style="margin-bottom:20px">
+		         
+		          <p:autoComplete id="notaAnomala" value="#{funcionarioBean.funcionario.idNotaAnomala}"   converter="br.gov.sspba.converter.SimpleIndexConverter"  var="notaAnomala" itemValue="#{notaAnomala}" forceSelection="true" itemLabel="#{notaAnomala.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Nota Anomala obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{funcionarioBean.autoCompleteNotaAnomala}">
+				                 <p:ajax event="itemSelect" listener="#{funcionarioBean.selecionaNotaAnomala}" />
+				              </p:autoComplete>
+           
+		         </p:fieldset>
+		       
+		      <div class="pull-left" style="margin-top:10px">
+		                      	  <p:commandButton update=":formFuncionario:growl2"  actionListener="#{funcionarioBean.avancar}"  value="Avançar" icon="fa fa-caret-right  Fs16 white" />
+		                 </div>
+		                
+	
+	
+	  <p:messages id="growl2"  showDetail="true" autoUpdate="true" closable="true" style="margin-top:80px"/>
+	</h:form>
+			
+            
+          </div>
+        </div>
+      
+            
+   </div>
+   
+   
+
+    </ui:define>
+
+ </ui:composition>

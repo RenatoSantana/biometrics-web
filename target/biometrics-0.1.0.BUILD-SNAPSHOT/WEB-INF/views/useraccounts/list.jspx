@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_br_gov_vistoria_domain_UserAccount" items="${useraccounts}" z="q0ezW91pw3KZy2w89uy7GVLL0MU=">
+        <table:table data="${useraccounts}" id="l_br_gov_vistoria_domain_UserAccount" path="/useraccounts" z="BTCxASHsAabgZhQyRQIGSo2PMsY=">
+            <table:column id="c_br_gov_vistoria_domain_UserAccount_userRole" property="userRole" z="LH46OrC6r51kDaO+re3D2dAFCgc="/>
+            <table:column calendar="true" dateTimePattern="${userAccount_datecreation_date_format}" id="c_br_gov_vistoria_domain_UserAccount_dateCreation" property="dateCreation" z="r2WOTOeSGTI6TnpjqWZWLo3iqjQ="/>
+            <table:column id="c_br_gov_vistoria_domain_UserAccount_email" property="email" z="Ap9UqrwM7iOlGpQU71Tmi+M3I1E="/>
+            <table:column id="c_br_gov_vistoria_domain_UserAccount_enabled" property="enabled" z="5ucrAfPrybYKyANqgCEPGuvTN3c="/>
+            <table:column id="c_br_gov_vistoria_domain_UserAccount_firstName" property="firstName" z="jJJRzRZeybwGfQPUBZ/o9x6JSGA="/>
+        </table:table>
+    </page:list>
+</div>

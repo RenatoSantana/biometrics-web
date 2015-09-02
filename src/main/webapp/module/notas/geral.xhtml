@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../template/template.xhtml"
+                xmlns:sec="http://www.springframework.org/security/tags">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+      
+		      
+			   
+			   
+			    <div class="Container100 Responsive50">
+                <div class="ContainerIndent">    
+               
+            
+            <h:form id="notaForm">
+          <p:growl id="growl1" showDetail="true" sticky="true" />  
+	       
+  <p:fieldset legend="Nota Geral"  style="margin-bottom:20px">
+			<p:panelGrid columns="2" layout="grid" style="border:0px !important; background:none;"  class="FormContent" > 
+			
+			  <p:inputTextarea placeholder="Descrição" styleClass="Wid90"  required="true"  requiredMessage="Campo obrigatório" id="descricao" rows="5" cols="70" value="#{notaGeralBean.notaGeral.descricao}"/>
+			  <p:commandButton value="Adicionar nota" actionListener="#{notaGeralBean.adicionarNotaGeral}" update=":notaForm:dtNotaGeral,:notaForm:salve,:notaForm:growl1" />
+			
+			
+			</p:panelGrid>
+		  </p:fieldset>
+			<p:outputPanel layout="grid" style="border:0px !important; background:none;"  class="FormContent">
+			
+			   <p:dataList id="dtNotaGeral"  value="#{notaGeralBean.notasGerais}" var="nota" emptyMessage="Sem notas"  type="ordered" itemType="none" paginator="true" rows="4" >
+			   
+			   <div class="ContentSideSections">
+                    <div class="Content100 overHidden TextShadow">
+                  
+                        <span class="defaultText dispTable">
+                                #{nota.descricao}
+         
+                        </span>
+                        <br/>
+                         <br/>
+                         <span class="fontSize16 TextShadow orange mediumFont marginBottom20 dispBlock">
+					        #{nota.userId.firstName}
+					    </span>
+                    </div>
+                </div>
+                <p:separator />
+	
+			          
+			
+			        
+			         
+			   </p:dataList>
+			
+			</p:outputPanel>
+			
+	<p:outputPanel>		
+			
+    <div class="pull-left" style="margin-top:10px">
+      
+		  <p:commandButton value="Voltar" icon="fa fa-caret-left Fs16 white" iconPos="left"  process="@this" action="#{notaGeralBean.voltar}"/>
+            
+         
+   
+    </div>
+    
+     <div class="pull-right" style="margin-top:10px">
+            
+          <p:commandButton id="salve" value="Salvar" process="@this" actionListener="#{notaGeralBean.save}"  icon="fa fa-save Fs16 white" disabled="#{notaGeralBean.podeSalvar}" />
+    
+    </div>
+</p:outputPanel>
+		</h:form>
+			
+             </div>
+        </div>
+      
+            
+</div>
+   
+       </ui:define>
+
+</ui:composition>

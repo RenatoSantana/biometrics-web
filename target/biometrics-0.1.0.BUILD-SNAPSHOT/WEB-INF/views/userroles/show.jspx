@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_br_gov_vistoria_domain_UserRole" object="${userrole}" path="/userroles" z="N4q0SW6WSgpkfQIqvjt09sp8fPk=">
+        <field:display field="userPermissions" id="s_br_gov_vistoria_domain_UserRole_userPermissions" object="${userrole}" z="ZXlvTv6BbV3rL4+RdM1pEbsUNm0="/>
+        <field:display field="roleName" id="s_br_gov_vistoria_domain_UserRole_roleName" object="${userrole}" z="OB53wrbTo+L4cMsnGuKK/rIH38E="/>
+        <field:display field="permissions" id="s_br_gov_vistoria_domain_UserRole_permissions" object="${userrole}" z="tWkyJTFxY03xAMH+5SlzKvQWKqY="/>
+    </page:show>
+</div>

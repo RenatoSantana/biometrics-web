@@ -1,0 +1,131 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../template/template.xhtml">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+      
+		    
+			   
+			   
+			    <div class="Container100 Responsive50">
+                <div class="ContainerIndent">    
+                    
+                     <h:form id="form2">              
+<p:fieldset legend="Consulta Usuário"  style="margin-bottom:20px">
+          
+<p:growl id="messages" showDetail="true" life="3000"  />
+                <p:dataTable id="objects" var="object" value="#{accountBean.userList}" styleClass="et_datatable" emptyMessage="Aucun résultat" editable="true"
+                             paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15" selectionMode="single" rowKey="#{object.id}" filteredValue="#{accountBean.userListSelected}" >
+
+                   
+
+                    <p:column headerText="Login"  sortBy="#{object.userName}" filterBy="#{object.userName}"  filterMatchMode="contains" >
+                        
+                   		 <h:outputText value="#{object.userName}" />
+               			  
+                    </p:column>
+                    
+                    <p:column headerText="Nome" sortBy="#{object.firstName}" filterBy="#{object.firstName}" filterMatchMode="contains" >
+                        <h:outputText value="#{object.firstName}" />
+                    </p:column>
+                    
+          
+
+                    <p:column headerText="Email" sortBy="#{object.email}" filterBy="#{object.email}" filterMatchMode="contains" >
+                        <h:outputText value="#{object.email}" />
+                    </p:column>
+                    
+                    <p:column headerText="Regra" sortBy="#{object.userRole.roleName}" filterBy="#{object.userRole.roleName}" filterMatchMode="contains" >
+                        <h:outputText value="#{object.userRole.roleName}" />
+                    </p:column>
+                         <p:column headerText="Editar" style="width:50px">
+                            <p:commandLink update=":form2:display" oncomplete="PF('detailsDlg').show()"  title="Editar">
+                                <f:setPropertyActionListener value="#{object}" target="#{accountBean.userSelected}" />
+                               
+                                <i class="fa fa-pencil Fs16 blue" ></i>
+                            </p:commandLink>        
+                    </p:column>
+  
+
+                </p:dataTable>
+                
+                
+              <p:button outcome="/module/usuario/funcionario" styleClass="pull-right" style="margin-top:10px" value="Novo Usuário" icon="fa fa-plus Fs16 white"/>
+<p:dialog header="Editar Conta de Usuário" widgetVar="detailsDlg" resizable="false"
+                          width="600" height="300" showEffect="clip" hideEffect="clip" modal="true"  >
+
+                     <p:panelGrid id="display" columns="2" layout="grid" style="border:0px !important; background:none;"  class="FormContent" >
+                         <p:outputLabel value="Nome "  />   
+                         <p:outputLabel value="#{accountBean.userSelected.firstName} #{accountBean.userSelected.lastName}"  />
+                         
+                          <p:outputLabel value="Login "  />   
+                          <p:outputLabel value="#{accountBean.userSelected.userName}"  ></p:outputLabel>
+            
+
+						 <p:outputLabel value="Email "   />   
+                         <p:inputText styleClass="Wid90" id="email"  value="#{accountBean.userSelected.email}" required="false" label="email" requiredMessage="Email obrigatório"  size="27" />  
+
+
+        				
+        				<h:outputLabel for="enabled" value="Status :" /> 
+        				<p:selectOneMenu styleClass="Wid90" id="enabled" value="#{accountBean.userSelected.enabled}" style="width:200px">  
+            			<f:selectItem itemLabel="Ativo" itemValue="1" />  
+            			<f:selectItem itemLabel="Desativado" itemValue="0" />  
+        				</p:selectOneMenu>  
+                        
+                        <h:outputLabel for="RoleSelect" value="Regra :" />  
+        				<p:selectOneMenu styleClass="Wid90"  id="RoleSelect" value="#{accountBean.role}" style="width:200px">  
+            			<f:selectItems value="#{accountBean.allRoles}" var="role" itemLabel="#{role.roleName}" itemValue="#{role.id}" />  
+        				</p:selectOneMenu> 
+                      
+
+                    </p:panelGrid>
+
+                    <p:outputPanel  layout="block" style="text-align:center">
+                    	<br />
+						
+                        <p:commandButton  style="margin-left:17px"  value="Salvar" update=":form2:objects, :form2:messages" actionListener="#{accountBean.update}"
+                                          oncomplete="PF('detailsDlg').hide()" />
+                        <p:commandButton style="margin-left:15px" value="Cancelar" onclick="PF('detailsDlg').hide()" type="button" />
+                    </p:outputPanel>
+
+                </p:dialog>
+                </p:fieldset>
+    </h:form>   
+
+
+
+   
+         </div>
+            
+
+   
+         </div>
+            
+
+
+
+
+          
+            
+        
+         </div>
+            
+          
+            
+            
+            
+            
+     
+      
+            
+
+
+    </ui:define>
+
+</ui:composition>

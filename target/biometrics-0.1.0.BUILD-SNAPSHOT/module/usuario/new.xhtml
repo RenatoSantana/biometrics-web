@@ -1,0 +1,91 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    template="../../template/template.xhtml">
+    
+   <ui:define name="content">
+  <div class="layout-portlets-box">
+  
+       
+      <div class="Container100 Responsive50">
+            <div class="ContainerIndent">       
+         
+      	<h:form id="form1" >              
+    <p:growl id="messages" showDetail="true" />  
+    
+      
+     <p:fieldset legend="Cadastro de Usuário"  id="panel" style="margin-bottom:20px">
+		<p:panelGrid columns="2" layout="grid" style="border:0px !important; background:none;"  class="FormContent" >
+          
+            
+            <p:outputLabel value="Nome"  />   
+            <p:outputLabel value="#{accountBean.user.firstName} #{accountBean.user.lastName}" styleClass="Wid90" ></p:outputLabel>
+           
+            
+            <p:outputLabel value="Login"  />   
+            <p:outputLabel value="#{accountBean.funcionario.matricula}" styleClass="Wid90" ></p:outputLabel>
+            
+          
+            
+            <p:outputLabel value="Email"   />   
+            <p:inputText styleClass="Wid90" id="email" value="#{accountBean.user.email}" required="true" label="email" requiredMessage="Email obrigatório" >
+             <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+            </p:inputText>  
+            
+        	
+        	<p:outputLabel for="enabled" value="Status"  /> 
+        	<p:selectOneMenu id="enabled" value="#{accountBean.user.enabled}" styleClass="Wid90">  
+            <f:selectItem itemLabel="Ativo" itemValue="1" />  
+            <f:selectItem itemLabel="Desativo" itemValue="0" />  
+        	</p:selectOneMenu>  
+        	
+        	<p:outputLabel for="RoleSelect" value="Regra "  />  
+        
+        	<p:selectOneMenu id="RoleSelect" value="#{accountBean.role}" styleClass="Wid90">  
+
+            <f:selectItems value="#{accountBean.allRoles}" var="role" itemLabel="#{role.roleName}" itemValue="#{role.id}" />  
+        	</p:selectOneMenu> 
+        	
+        	
+        	
+        	
+        	<p:outputPanel lass="pull-left" layout="block">
+							<br />
+							<br />
+
+		
+		
+        	 <p:commandButton value="Salvar" actionListener="#{accountBean.save}" update=":form1:messages, :form1:panel"/> 
+            </p:outputPanel>
+       
+        
+           
+        </p:panelGrid>  
+  
+  		
+  		
+        
+        	
+      
+       
+         
+       
+    </p:fieldset>  
+    
+    </h:form>   
+			
+            
+          </div>
+        </div>
+      
+            
+   </div>
+   
+   
+
+    </ui:define>
+
+ </ui:composition>

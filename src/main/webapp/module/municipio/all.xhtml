@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="../../template/template.xhtml">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+      
+		      	<ui:insert name="navigation">
+			    	<ui:include src="/module/municipio/navigation.xhtml" />
+			   </ui:insert>
+			   
+			   
+			    <div class="Container60 Responsive50">
+                <div class="ContainerIndent">    
+                    <h1 class="BigTopic">Consulta</h1>
+                    <h:form id="form">
+                        <p:dataTable id="singleDT" var="car" value="#{dtSelectionView.cars7}" selectionMode="single" selection="#{dtSelectionView.selectedCar}" 
+                                     rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     emptyMessage="Nenhum município encontrado" reflow="true">
+                          
+            
+
+                           
+                            <p:column headerText="Nome" >
+                                <h:outputText value="" />
+                            </p:column>
+                            
+                            <p:column headerText="Excluir" style="width:50px">
+                            <p:commandLink   oncomplete="confirmDeleteDlg.show()" image="ui-icon ui-icon-close" title="Excluir">
+                               
+                                <h:outputText styleClass="ui-icon ui-icon-close" />
+                            </p:commandLink>        
+                           </p:column>
+			                    <p:column headerText="Detalhar" style="width:50px">
+			                            <p:commandLink oncomplete="detailsDlg.show()" image="ui-icon ui-icon-search" title="Detalhar">
+			                                
+			                                <h:outputText styleClass="ui-icon ui-icon-search" />
+			                            </p:commandLink>        
+			                    </p:column>
+                         
+                        </p:dataTable>
+
+                       
+                    </h:form>
+                </div>
+            </div>
+
+          
+            
+        
+         </div>
+            
+          
+            
+            
+            
+            
+     
+      
+            
+
+
+    </ui:define>
+
+</ui:composition>

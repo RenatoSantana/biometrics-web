@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_br_gov_vistoria_domain_UserRole" modelAttribute="userRole" path="/userroles" versionField="Version" z="o/JZV8Y91xe0NmsBreBOtEtPuZI=">
+        <field:select field="userPermissions" id="c_br_gov_vistoria_domain_UserRole_userPermissions" itemValue="id" items="${userpermissions}" multiple="true" path="/userpermissions" z="0X9l8WfhnyiVZKiw7jfZgmJm0Xw="/>
+        <field:simple field="userAccounts" id="c_br_gov_vistoria_domain_UserRole_userAccounts" messageCode="entity_reference_not_managed" messageCodeAttribute="User Account" z="kD7PXOv3tt0hBJokUFPqGdWAg2Q="/>
+        <field:input field="roleName" id="c_br_gov_vistoria_domain_UserRole_roleName" required="true" z="xV4TbMQaxPrH2QS2X2EWpRURu7U="/>
+        <field:simple field="roleAccounts" id="c_br_gov_vistoria_domain_UserRole_roleAccounts" messageCode="entity_reference_not_managed" messageCodeAttribute="User Account" z="tL9yAcPf5T2HbA0arUuEDbLpdGk="/>
+        <field:select field="permissions" id="c_br_gov_vistoria_domain_UserRole_permissions" itemValue="id" items="${userpermissions}" multiple="true" path="/userpermissions" z="1MVZBJ+G4wYULw1K4vH73IvDXbk="/>
+        <field:simple field="permissionroleses" id="c_br_gov_vistoria_domain_UserRole_permissionroleses" messageCode="entity_reference_not_managed" messageCodeAttribute="Permissionroles" z="PzAKI8AP9JK7HjHTd+qjlh2Imrk="/>
+        <field:simple field="permissionroleses1" id="c_br_gov_vistoria_domain_UserRole_permissionroleses1" messageCode="entity_reference_not_managed" messageCodeAttribute="Permissionroles" z="xaXzrwekdxblrxplELJRf9DjnUg="/>
+    </form:update>
+</div>

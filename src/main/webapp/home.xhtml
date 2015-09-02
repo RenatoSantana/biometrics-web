@@ -1,0 +1,109 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="./template/template.xhtml">
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.seriesColors = ['#71CC8D', '#33AFDE', '#F7941E'];
+                this.cfg.grid = {
+                    background: '#EDF3F6',
+                    borderColor: '#D9E3E8',
+                    gridLineColor: '#D9E3E8',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#778D9B'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    markerOptions: {
+                        shadow: false
+                    }
+                }
+            }
+
+            function skinPie() {
+                this.cfg.seriesColors = ['#dae8ef', '#27aae1', '#33ccff', '#9fadb5'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#eaeaea',
+                    gridLineColor: '#e5ebf0',
+                    shadow: false,
+                    borderWidth: 0
+                };
+                this.cfg.seriesDefaults.shadow = false;
+            }
+        </script>
+        <style type="text/css">
+            .jqplot-target, .jqplot-axis {
+                color: #778D9B;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+        <!-- BOX START -->
+        <div class="layout-portlets-box">
+            <div class="Container20 Responsive">
+                <div class="ContainerIndent">
+                    <div class="Container100">
+
+                        <div class="DispInlBlock MarTop20">
+                            <div class="Container40"><i class="fa fa-user Fs50 red Fleft MarRight10"></i></div>
+                            <div class="Container60">
+                                <div class="Fright" >
+                                    <h2 class="black Fs24 FontRalewayMedium"> #{loginController.loggedUser.firstName}</h2>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Seperator"></div>
+                     
+                    
+                    </div>
+                </div>
+                
+                
+             
+            </div>
+       <div class="Container45 Responsive">
+                       <div class="ContainerIndent">
+                           <div class="Container100 TexAlCenter">
+                           
+                            <div class="DispInlBlock TexAlLeft MarTop20">
+                            <div class="Container20"><i class="Fs40 orange Fleft MarRight10"></i></div>
+                            <div class="Container100">
+                                <div class="Fright">
+                                    <h:form id="formHome">
+                                     <p:growl id="growl" showDetail="true" sticky="true" />  
+                                    <h2 class="black Fs25 FontRalewayMedium">Informe a matrícula do usuário para dar continuidade ao cadastro</h2>
+                                    
+                                    <h:panelGrid style="margin-top:15px;margin-left:25%" columns="2" cellpadding="6">
+                                       <p:inputText value="#{funcionarioBean.matricula}"  styleClass="Wid90" required="true" requiredMessage="Digite a matrícula"></p:inputText>
+                                       <p:commandButton icon="fa fa-search Fs16 white" value="Verificar" ajax="false" action="#{funcionarioBean.findFuncionarioByMatricula}" ></p:commandButton>
+                                    </h:panelGrid>
+                                    </h:form>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                           
+                           </div>
+                       </div>
+                     </div>
+          
+          
+        
+        </div>
+         
+        
+    </ui:define>
+
+</ui:composition>

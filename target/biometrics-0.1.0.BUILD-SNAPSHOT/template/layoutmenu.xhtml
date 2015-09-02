@@ -1,0 +1,59 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ps="http://primefaces.org/spark"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:sec="http://www.springframework.org/security/tags">
+    <h:form>
+        <ps:menu>
+            <f:facet name="options">
+              
+                 
+            </f:facet>
+
+            <p:submenu label="Home"  styleClass="myHome" icon="fa fa fa-home"  >
+                
+            </p:submenu>
+      <sec:authorize access="hasRole('ADMIN')">      
+            <p:separator />
+
+            <p:submenu label="Administração" icon="fa fa-cog" >
+           
+                  
+                       
+                  
+				        <p:submenu label="Segurança" icon="fa fa-user-secret">
+				                <p:menuitem value="Usuário" icon="fa fa-users" outcome="/module/usuario/all"/>  
+				        </p:submenu>
+           
+			
+                
+             
+            </p:submenu>
+
+         </sec:authorize> 
+            <p:separator />
+            <p:submenu label="Funcionário" icon="fa fa-newspaper-o">         
+                <p:menuitem value="Consultar" icon="fa fa-search" outcome="/module/funcionario/all" />
+          
+            </p:submenu>
+
+         
+
+
+        
+
+         
+        </ps:menu>
+    </h:form>
+        <script type="text/javascript">
+        
+             $(".myHome").bind("click",function(){
+            	 window.location = '/biometrics';
+            	 }
+             );
+        </script>
+
+</ui:composition>

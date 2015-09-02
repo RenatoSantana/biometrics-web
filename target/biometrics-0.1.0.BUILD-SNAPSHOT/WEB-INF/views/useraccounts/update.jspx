@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_br_gov_vistoria_domain_UserAccount" modelAttribute="userAccount" path="/useraccounts" versionField="Version" z="9XeUibGZ1GdH62GSsgoFmoMDlhQ=">
+        <field:select field="userRole" id="c_br_gov_vistoria_domain_UserAccount_userRole" itemValue="id" items="${userroles}" path="/userroles" z="IUuxIa3wAE04oeTDdjZ8sJ1vzEs="/>
+        <field:datetime dateTimePattern="${userAccount_datecreation_date_format}" field="dateCreation" id="c_br_gov_vistoria_domain_UserAccount_dateCreation" z="vDFhLu/kCjAdz8wQu0ViVoF0ozk="/>
+        <field:input field="email" id="c_br_gov_vistoria_domain_UserAccount_email" required="true" validationMessageCode="field_invalid_email" z="Mj524UQB254iZyBfJPIyii7K+ZA="/>
+        <field:input field="enabled" id="c_br_gov_vistoria_domain_UserAccount_enabled" required="true" z="RjMstvnLCdu7nKYJmdlOJDw5j+0="/>
+        <field:input field="firstName" id="c_br_gov_vistoria_domain_UserAccount_firstName" required="true" z="rMkr4h67no7Vya78DQdEwTnKlRU="/>
+        <field:input field="lastName" id="c_br_gov_vistoria_domain_UserAccount_lastName" required="true" z="5ADUNOj63Ctfgrx4Q+/TC7V16Ow="/>
+        <field:input field="password" id="c_br_gov_vistoria_domain_UserAccount_password" required="true" z="Xx/mymR6w67chh9ViQ1aF32u9aM="/>
+        <field:input field="userName" id="c_br_gov_vistoria_domain_UserAccount_userName" required="true" z="GEezJIX4b3MwD8qwLOwM7ct2kyg="/>
+        <field:simple field="notagerals" id="c_br_gov_vistoria_domain_UserAccount_notagerals" messageCode="entity_reference_not_managed" messageCodeAttribute="Notageral" z="1bkDNkQUUKtgFeE26eZOc1/AFno="/>
+    </form:update>
+</div>
