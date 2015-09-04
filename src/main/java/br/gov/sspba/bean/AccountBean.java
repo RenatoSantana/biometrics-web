@@ -2,7 +2,6 @@ package br.gov.sspba.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,12 +17,9 @@ import org.primefaces.event.SelectEvent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import br.gov.sspba.domain.Cutis;
 import br.gov.sspba.domain.Funcionario;
-import br.gov.sspba.domain.Sexo;
 import br.gov.sspba.domain.UserAccount;
 import br.gov.sspba.domain.UserRole;
-import br.gov.sspba.service.ServiceGlobalSession;
 import br.gov.sspba.util.JsfUtils;
 
 
@@ -73,9 +69,9 @@ public class AccountBean implements Serializable{
 		user.setEnabled("1");
 		userSelected = new UserAccount();
 		userList = new ArrayList<UserAccount>();
-		userListSelected = new ArrayList<UserAccount>();
+		//userListSelected = new ArrayList<UserAccount>();
 		userList.addAll(UserAccount.findAllUserAccounts());
-		userListSelected.addAll(UserAccount.findAllUserAccounts());
+		
 
 		funcionario=(Funcionario) JsfUtils.getObjectSession("funcionario_usuario");
 		if(funcionario==null){

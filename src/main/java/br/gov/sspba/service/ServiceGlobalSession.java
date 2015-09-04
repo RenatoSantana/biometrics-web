@@ -9,6 +9,7 @@ import br.gov.sspba.domain.Barba;
 import br.gov.sspba.domain.Bigode;
 import br.gov.sspba.domain.Cabelo;
 import br.gov.sspba.domain.CategoriaCNH;
+import br.gov.sspba.domain.Comando;
 import br.gov.sspba.domain.Cutis;
 import br.gov.sspba.domain.Estado;
 import br.gov.sspba.domain.Estadocivil;
@@ -21,6 +22,7 @@ import br.gov.sspba.domain.Notaanomala;
 import br.gov.sspba.domain.Olho;
 import br.gov.sspba.domain.Postograduacao;
 import br.gov.sspba.domain.Quadro;
+import br.gov.sspba.domain.Regiao;
 import br.gov.sspba.domain.Sexo;
 import br.gov.sspba.domain.Situacaopolicial;
 import br.gov.sspba.domain.Tipocertidao;
@@ -75,6 +77,26 @@ public class ServiceGlobalSession {
 	
 	private static List<CategoriaCNH> categoriaCNHList;
 	
+	private static List<Regiao> regioes;
+
+	private static List<Comando> comandos;
+	
+	
+	public static List<Comando> findAllComando(){
+
+		if(comandos==null)
+			return comandos = Comando.findAllComandoes();
+		else
+			return comandos;
+	}
+	
+	public static List<Regiao> findAllRegiao(){
+
+		if(regioes==null)
+			return regioes = Regiao.findAllRegiaos();
+		else
+			return regioes;
+	}
 	
 	public static List<CategoriaCNH> findAllCategoriaCNH(){
 
@@ -267,6 +289,26 @@ public class ServiceGlobalSession {
 
 	public static void setCategoriaCNHList(List<CategoriaCNH> categoriaCNHList) {
 		ServiceGlobalSession.categoriaCNHList = categoriaCNHList;
+	}
+
+
+	public static List<Comando> getComandos() {
+		return comandos;
+	}
+
+
+	public static void setComandos(List<Comando> comandos) {
+		ServiceGlobalSession.comandos = comandos;
+	}
+
+
+	public static List<Regiao> getRegioes() {
+		return regioes;
+	}
+
+
+	public static void setRegioes(List<Regiao> regioes) {
+		ServiceGlobalSession.regioes = regioes;
 	}
 
 }

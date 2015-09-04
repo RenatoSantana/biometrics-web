@@ -8,112 +8,42 @@
     
    <ui:define name="content">
   <div class="layout-portlets-box">
-      
-      	<ui:insert name="navigation">
-	    	<ui:include src="/module/unidade/navigation.xhtml" />
-	   </ui:insert>
-        
+
        
-      <div class="Container60 Responsive50">
+      <div class="Container100 Responsive50">
             <div class="ContainerIndent">       
-            <h1 class="BigTopic">Cadastro</h1>
-         <h:form >
+      
+         <h:form id="form" >
              <p:growl id="messages" showDetail="true" />
              
-             
-                 
-                      <h:panelGrid columns="2" cellpadding="6">
-		                      <p:outputLabel for="inputNome" value="Nome :"/>
-				              <p:inputText id="inputNome"  style="width:200px" />
+              <p:fieldset legend="Cadastro de Unidade"  id="panel" style="margin-bottom:20px">
+		<p:panelGrid columns="2" layout="grid" style="border:0px !important; background:none;"  class="FormContent" >
+          
+		                     <p:outputLabel for="inputNome" value="Nome :"/>
+				             <p:inputText id="inputNome"   value="#{unidadeBean.unidade.descricao}"  styleClass="Wid90" />
 				             
-				              <p:outputLabel for="inputSigla" value="Sigla :"/>
-				              <p:inputText id="inputSigla"  style="width:200px" />
-				              
-				              
-				        
-				              
-				      </h:panelGrid>
-				      
-			 <p:fieldset legend="Endereço" style="margin-bottom:20px">	    
-                     <h:panelGrid columns="4" cellpadding="14">
-                              <p:outputLabel  value="Tipo :"/>
-				              <p:autoComplete id="tipo" dropdown="true" size="10" />
-				              <p:outputLabel  value="Logradouro :" style="margin-left:15px"/>
-				              <p:autoComplete id="logradouro" dropdown="true" size="27" />
-				              
-				              <p:outputLabel for="inputNumero" value="Nº : "/>
-				              <p:inputText id="inputNumero"  style="width:30px" />
-				              <p:outputLabel for="inputComplemento" value="Complemento :" style="margin-left:15px"/>
-				              <p:inputText id="inputComplemento"  style="width:200px" />
-				              
-				              
-				              <p:outputLabel  value="Município:"/>
-				              <p:autoComplete id="municipio" dropdown="true" size="25" />
-				              
-				              <p:outputLabel  value="Bairro :" style="margin-left:15px"/>
-				              <p:autoComplete id="bairro" dropdown="true" size="25" />
-				              
-				              <p:outputLabel for="inputCep" value="CEP :"/>
-				              <p:inputText id="inputCep"  style="width:70px" />
-				              
-                      </h:panelGrid>
-                      
-                   </p:fieldset>   
-                      <h:panelGrid columns="2" cellpadding="6">
-		                     <p:outputLabel value="Comandante:"/>
-				             <p:autoComplete id="comandante" dropdown="true" size="27" />
+				            <p:outputLabel value="Comando:"/>
+				              <p:autoComplete id="comandoCmp" value="#{unidadeBean.unidade.idComando}"   converter="br.gov.sspba.converter.SimpleIndexConverter"  var="comando" itemValue="#{comando}" forceSelection="true" itemLabel="#{comando.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Comando  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{unidadeBean.autoCompleteComando}">
+				                 <p:ajax  event="itemSelect" listener="#{unidadeBean.selecionaComando}" />
+				             </p:autoComplete>
 				             
-				              <p:outputLabel for="inputTelefone" value="Telefone :"/>
-				              <p:inputText id="inputTelefone"  style="width:100px" />
+				            <p:outputLabel  value="Município:"/>
+				              <p:autoComplete id="municipioCmp" value="#{unidadeBean.unidade.idMunicipio}"   converter="br.gov.sspba.converter.SimpleIndexConverter"  var="municipio" itemValue="#{municipio}" forceSelection="true" itemLabel="#{municipio.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Município  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{unidadeBean.autoCompleteMunicipio}">
+				                 <p:ajax  event="itemSelect" listener="#{unidadeBean.selecionaMunicipio}" />
+				              </p:autoComplete>
 				              
 				              
-				        
-				              
-				      </h:panelGrid>
-				      
-				     
-				      <p:fieldset legend="Município atendido" >
-				       <h:panelGrid columns="5" cellpadding="6">
-		                    
-				              <p:outputLabel  value="Município :"/>
-				              <p:autoComplete id="municipio2" dropdown="true" size="27" />
-				              <p:outputLabel  value="Bairro :" style="margin-left:40px"/>
-				              <p:autoComplete id="bairro2" dropdown="true" size="27" />  
-				              <p:commandButton icon="fa fa-plus Fs16 white" style="margin-left:60px"/>
-				              
-				        
-				      </h:panelGrid>
-				       
-				       
-				        <p:dataTable  style="margin-top:20px" id="singleDT" var="car" value="#{dtSelectionView.cars7}"
-                                    
-                                     emptyMessage="Nenhum registro adicionado" reflow="true">
-                          
-            
-
-                           
-                            <p:column headerText="Município" >
-                                <h:outputText value="" />
-                            </p:column>
-                            
-                             <p:column headerText="Bairro" >
-                                <h:outputText value="" />
-                            </p:column>
-                            <p:column headerText="Excluir" style="width:50px">
-                            <p:commandLink   oncomplete="confirmDeleteDlg.show()" image="ui-icon ui-icon-close" title="Excluir">
-                               
-                                <h:outputText styleClass="ui-icon ui-icon-close" />
-                            </p:commandLink>        
-                           </p:column>
-                         
-                        </p:dataTable>
-                      </p:fieldset>
-				      <h:panelGrid  style="margin-top:20px" columns="2" >
-				              <p:commandButton value="Salvar" icon="fa fa-save Fs16 white" />
-				              <p:commandButton value="Voltar" icon="fa fa-reply Fs16 white" style="margin-left:600px" />
 				            
-				      </h:panelGrid>
-						
+				               
+				             <p:outputLabel value="Região:"/>
+				            <p:autoComplete id="regiaoCmp" value="#{unidadeBean.unidade.idRegiao}"   converter="br.gov.sspba.converter.SimpleIndexConverter"  var="regiao" itemValue="#{regiao}" forceSelection="true" itemLabel="#{regiao.descricao}"    minQueryLength="3" maxResults="22" cache="true" cacheTimeout="10000"  required="true" requiredMessage="Região  obrigatório" dropdown="true" styleClass="Wid90" completeMethod="#{unidadeBean.autoCompleteRegiao}">
+				                 <p:ajax  event="itemSelect" listener="#{unidadeBean.selecionaRegiao}" />
+				              </p:autoComplete>
+				              
+			       <p:commandButton value="Salvar" actionListener="#{unidadeBean.save}" update=":form:messages"/> 
+				              
+				      </p:panelGrid>
+				   </p:fieldset>
 								
 	           
          

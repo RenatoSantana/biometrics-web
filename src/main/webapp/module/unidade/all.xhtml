@@ -8,49 +8,45 @@
     <ui:define name="content">
         <div class="layout-portlets-box">
       
-		      	<ui:insert name="navigation">
-			    	<ui:include src="/module/unidade/navigation.xhtml" />
-			   </ui:insert>
-			   
-			   
-			    <div class="Container60 Responsive50">
+	
+			    <div class="Container100 Responsive50">
                 <div class="ContainerIndent">    
-                    <h1 class="BigTopic">Consulta</h1>
+                
                     <h:form id="form">
-                        <p:dataTable id="singleDT" var="car" value="#{dtSelectionView.cars7}" selectionMode="single" selection="#{dtSelectionView.selectedCar}" 
-                                     rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                     emptyMessage="Nenhuma unidade encontrado" reflow="true">
+                      <p:growl id="message" showDetail="true" />
+  <p:fieldset legend="Consulta Unidade"  style="margin-bottom:20px">
+                        <p:dataTable id="unidades" var="unidade" value="#{unidadeBean.unidadeList}"  emptyMessage="Nenhum registro" editable="true"
+                             paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             selectionMode="single" reflow="true" rowKey="#{unidade}" >
                           
             
 
                            
-                            <p:column headerText="Nome" >
-                                <h:outputText value="" />
+                            <p:column headerText="Nome"   sortBy="#{unidade.descricao}" filterBy="#{unidade.descricao}"  filterMatchMode="contains">
+                                <h:outputText value="#{unidade.descricao}" />
                             </p:column>
                             
-                            <p:column headerText="Sigla" >
-                                <h:outputText value="" />
+                            <p:column headerText="Comando" sortBy="#{unidade.idComando.descricao}" filterBy="#{unidade.idComando.descricao}"  filterMatchMode="contains" >
+                                <h:outputText value="#{unidade.idComando.descricao}" />
                             </p:column>
                             
-                            <p:column headerText="Comandante" >
-                                <h:outputText value="" />
+                            <p:column headerText="Município" sortBy="#{unidade.idMunicipio.descricao}" filterBy="#{unidade.idMunicipio.descricao}">
+                                <h:outputText  value="#{unidade.idMunicipio.descricao}" />
                             </p:column>
                             
-                            <p:column headerText="Excluir" style="width:50px">
-                            <p:commandLink   oncomplete="confirmDeleteDlg.show()" image="ui-icon ui-icon-close" title="Excluir">
-                               
-                                <h:outputText styleClass="ui-icon ui-icon-close" />
-                            </p:commandLink>        
-                           </p:column>
-			                    <p:column headerText="Detalhar" style="width:50px">
-			                            <p:commandLink oncomplete="detailsDlg.show()" image="ui-icon ui-icon-search" title="Detalhar">
-			                                
-			                                <h:outputText styleClass="ui-icon ui-icon-search" />
-			                            </p:commandLink>        
-			                    </p:column>
+                            <p:column headerText="Região" sortBy="#{unidade.idRegiao.descricao}" filterBy="#{unidade.idRegiao.descricao}">
+                                <h:outputText value="#{unidade.idRegiao.descricao}" />
+                            </p:column>
+                            
+                           <p:column headerText="Editar" style="width:50px">
+
+			                                 <p:commandButton id="selectButton" process="@this" immediate="true" actionListener="#{unidadeBean.selecionaUnidade(unidade)}" icon="fa fa-pencil Fs16 white" title="Editar" /> 
+			                              
+			                  </p:column>
                          
                         </p:dataTable>
-
+                                      <p:button outcome="/module/unidade/new" styleClass="pull-right" style="margin-top:10px" value="Nova Unidade" icon="fa fa-plus Fs16 white"/>
+</p:fieldset>
                        
                     </h:form>
                 </div>

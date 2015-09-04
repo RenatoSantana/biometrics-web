@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,8 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
 import br.gov.sspba.domain.Dadobiometrico;
@@ -27,8 +24,6 @@ import br.gov.sspba.domain.Notageral;
 import br.gov.sspba.domain.UserAccount;
 import br.gov.sspba.service.DadoBiometricoService;
 import br.gov.sspba.service.NotaGeralService;
-import br.gov.sspba.service.UserAccountService;
-import br.gov.sspba.util.Constants;
 import br.gov.sspba.util.JsfUtils;
 
 

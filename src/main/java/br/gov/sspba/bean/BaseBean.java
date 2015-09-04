@@ -7,6 +7,7 @@ import br.gov.sspba.domain.Barba;
 import br.gov.sspba.domain.Bigode;
 import br.gov.sspba.domain.Cabelo;
 import br.gov.sspba.domain.CategoriaCNH;
+import br.gov.sspba.domain.Comando;
 import br.gov.sspba.domain.Cutis;
 import br.gov.sspba.domain.Estado;
 import br.gov.sspba.domain.Estadocivil;
@@ -18,6 +19,7 @@ import br.gov.sspba.domain.Notaanomala;
 import br.gov.sspba.domain.Olho;
 import br.gov.sspba.domain.Postograduacao;
 import br.gov.sspba.domain.Quadro;
+import br.gov.sspba.domain.Regiao;
 import br.gov.sspba.domain.Sexo;
 import br.gov.sspba.domain.Situacaopolicial;
 import br.gov.sspba.domain.Tipocertidao;
@@ -27,6 +29,35 @@ import br.gov.sspba.service.ServiceGlobalSession;
 public class BaseBean {
 
 
+	public  static List<Comando> autoCompleteComando(String query) {  
+		List<Comando> suggestions = new ArrayList<Comando>();  
+		List<Comando> list = ServiceGlobalSession.findAllComando();
+		if(query.length()>=3){
+			for(Comando s : list) {  
+				if(s.getDescricao() .toUpperCase().contains(query.toUpperCase()))  
+					suggestions.add(s);  
+			}  
+		}else if(query.length()==0){
+			suggestions = list;
+		}
+
+		return suggestions;  
+	} 
+	
+	public  static List<Regiao> autoCompleteRegiao(String query) {  
+		List<Regiao> suggestions = new ArrayList<Regiao>();  
+		List<Regiao> list = ServiceGlobalSession.findAllRegiao();
+		if(query.length()>=3){
+			for(Regiao s : list) {  
+				if(s.getDescricao() .toUpperCase().contains(query.toUpperCase()))  
+					suggestions.add(s);  
+			}  
+		}else if(query.length()==0){
+			suggestions = list;
+		}
+
+		return suggestions;  
+	} 
 	
 	public  static List<Sexo> autoCompleteSexo(String query) {  
 		List<Sexo> suggestions = new ArrayList<Sexo>();  
